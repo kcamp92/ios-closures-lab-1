@@ -24,7 +24,15 @@ Hello Closures!
 Hello Closures!
 Hello Closures!
 ```
-
+```
+func applyKTimes(_k: Int, _ closure: () -> ()) 
+    for _ in 0..<k {
+        closure()
+    }
+}
+let printHello = { print("Hello Closures!") }
+applyKTimes(3, printHello)
+```
 
 ## Question 2
 
@@ -46,7 +54,19 @@ Example:
 Input: `let numbers = [4, 7, 1, 9, 6, 5, 6, 9]`
 
 Output: `9`
+```
+let numbers = [4, 7, 1, 9, 6, 5, 6, 9]
 
+let largestNumber = numbers.reduce(0, {x, y in  x > y ? x : y })
+    print(largestNumber)
+
+let numbers = [4, 7, 1, 9, 6, 5, 6, 9]
+
+numbers.reduce(){x , y in
+return  x > y ? x : y
+}
+print(numbers)
+```
 
 ## Question 4
 
