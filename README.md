@@ -213,37 +213,72 @@ c) ["one ", "two ", "three ", "four four ", "five five five ", "six six zero zer
 ```
 let theInts = [1, 2, 3, 44, 555, 6600, 10763]
 
-func intsToStrings(arr: [Int], closure:(Int) -> String) -> [String] {
-var stringArray = [String] ()
+
+
+func intsToStrings(arr: [Int], closure: (Int) -> String) -> [String] {
+var stringArray = [String]()
 for num in arr {
 stringArray += [closure(num)]
+
 }
 
 return stringArray
 }
-let aString = {(x:Int) -> String in
-return String(x)
 
+let asString = {(x: Int) -> String in
+return String(x)
 }
 
-let evenOdd = {(x: Int) -> String in
+let evenOdd = { (x: Int) -> String in
 if x % 2 == 0 {
-return "Even"
+return "even"
 } else {
 return "odd"
 }
+
 }
 
-let englishWords = {(x: Int) -> String in
-//    if x % 2 == 0 {
-//       return "Even"
-//   } else {
-//    return "these are numbers"
+let englishWord = { (x: Int) -> String in
+switch x {
+case 1:
+return "one"
+case 2:
+return "two"
+default:
+return "these are numbers"
 }
 }
-print(intsToStrings(arr: theInts, closure: aString))
+
+
+print(intsToStrings(arr: theInts, closure: asString))
 print(intsToStrings(arr: theInts, closure: evenOdd))
-print(intsToStrings(arr: theInts, closure: englishWords))
+print(intsToStrings(arr: theInts, closure: englishWord))
+
+
+
+print(theInts.map({ (x) -> String in
+return String(x)
+}))
+
+print(theInts.map({ (x) -> String in
+if x % 2 == 0 {
+return "even"
+} else {
+return "odd"
+}
+}))
+
+print(theInts.map({ (x) -> String in
+switch x {
+case 1:
+return "one"
+case 2:
+return "two"
+default:
+return "these are numbers"
+}
+}))
+sToStrings(arr: theInts, closure: englishWords))
 ```
 ## Question 12
 
