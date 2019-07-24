@@ -210,8 +210,41 @@ a) ["1", "2", "3", "44", "555", "6600", "10763"]
 b) ["odd", "even", "odd", "even", "odd", "even", "odd"]
 c) ["one ", "two ", "three ", "four four ", "five five five ", "six six zero zero ", "one zero seven six three "]
 ```
+```
+let theInts = [1, 2, 3, 44, 555, 6600, 10763]
 
+func intsToStrings(arr: [Int], closure:(Int) -> String) -> [String] {
+var stringArray = [String] ()
+for num in arr {
+stringArray += [closure(num)]
+}
 
+return stringArray
+}
+let aString = {(x:Int) -> String in
+return String(x)
+
+}
+
+let evenOdd = {(x: Int) -> String in
+if x % 2 == 0 {
+return "Even"
+} else {
+return "odd"
+}
+}
+
+let englishWords = {(x: Int) -> String in
+//    if x % 2 == 0 {
+//       return "Even"
+//   } else {
+//    return "these are numbers"
+}
+}
+print(intsToStrings(arr: theInts, closure: aString))
+print(intsToStrings(arr: theInts, closure: evenOdd))
+print(intsToStrings(arr: theInts, closure: englishWords))
+```
 ## Question 12
 
 let myArray = [34,42,42,1,3,4,3,2,49]
